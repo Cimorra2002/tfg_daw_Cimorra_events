@@ -31,7 +31,7 @@
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Hola, {{ Auth::user()->name }}
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
                     <li><a class="dropdown-item" href="{{ route('logout') }}">Cerrar sesión</a></li>
                 </ul>
             </div>
