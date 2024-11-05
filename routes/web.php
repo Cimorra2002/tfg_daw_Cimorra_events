@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\aboutUsController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,5 +14,6 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [AuthController::class,'logout'])->name('logout');
     Route::get('/home', [AuthController::class,'home'])->name('home');
+    Route::get('/aboutUs', [AboutUsController::class,'aboutUs'])->name('aboutUs');
 });
 
