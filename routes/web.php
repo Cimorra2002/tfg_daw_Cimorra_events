@@ -4,6 +4,7 @@ use App\Http\Controllers\aboutUsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [AuthController::class,'home'])->name('home');
     Route::get('/home', [HomeController::class,'home'])->name('home');
     Route::get('/events', [EventsController::class,'events'])->name('events');
+    Route::get('/gallery', [GalleryController::class,'gallery'])->name('gallery');
     Route::get('/contactUs', [ContactUsController::class,'contactUs'])->name('contactUs');
     Route::get('/aboutUs', [AboutUsController::class,'aboutUs'])->name('aboutUs');
 });

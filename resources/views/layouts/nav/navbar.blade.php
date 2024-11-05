@@ -17,7 +17,7 @@
                     <a class="nav-link" href="{{ url('/events') }}">Eventos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('#') }}">Galeria</a>
+                    <a class="nav-link" href="{{ url('/gallery') }}">Galeria</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/contactUs') }}">Contactanos</a>
