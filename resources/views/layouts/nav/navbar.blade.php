@@ -20,7 +20,7 @@
                     <a class="nav-link" href="{{ url('#') }}">Galeria</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('#') }}">Contactanos</a>
+                    <a class="nav-link" href="{{ url('/contactUs') }}">Contactanos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/aboutUs') }}">Sobre nosotros</a>
