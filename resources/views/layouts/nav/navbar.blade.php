@@ -14,7 +14,7 @@
                     <a class="nav-link" aria-current="page" href="{{ url('/home') }}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('#') }}">Eventos</a>
+                    <a class="nav-link" href="{{ url('/events') }}">Eventos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('#') }}">Galeria</a>
