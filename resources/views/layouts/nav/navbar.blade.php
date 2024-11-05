@@ -23,7 +23,7 @@
                     <a class="nav-link" href="{{ url('#') }}">Contactanos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('#') }}">Sobre nosotros</a>
+                    <a class="nav-link" href="{{ url('/aboutUs') }}">Sobre nosotros</a>
                 </li>
             </ul>
             <div class="dropdown ms-5">
