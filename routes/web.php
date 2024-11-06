@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function () {
+    // Rutas para usuarios no autenticados
     Route::get('/', [AuthController::class,'index'])->name('login');
     Route::get('/registro', [AuthController::class,'registro'])->name('registro');
     Route::post('/registrar', [AuthController::class,'registrar'])->name('registrar');
@@ -16,6 +17,7 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+    // Rutas para usuarios autenticados
     Route::get('/logout', [AuthController::class,'logout'])->name('logout');
     Route::get('/home', [AuthController::class,'home'])->name('home');
     Route::get('/home', [HomeController::class,'home'])->name('home');
@@ -25,3 +27,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/aboutUs', [AboutUsController::class,'aboutUs'])->name('aboutUs');
 });
 
+// Rutas solo para administradores
+Route::middleware(['auth', 'admin'])->group(function () {
+
+
+});
