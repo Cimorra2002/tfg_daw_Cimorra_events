@@ -2,7 +2,7 @@
 # Contact Section
 --------------------------------------------------------------*/
 .contact .info-item {
-    background: color-mix(in srgb, #212529, transparent 80%);
+    background: color-mix(in srgb, #212529, transparent 90%);
     padding: 30px;
   }
 
@@ -26,7 +26,7 @@
   }
 
   .contact .php-email-form {
-    background: color-mix(in srgb, #212529, transparent 80%);
+    background: color-mix(in srgb, #212529, transparent 90%);
     padding: 30px;
     height: 100%;
   }
