@@ -27,12 +27,12 @@
                 </li>
             </ul>
             <div class="dropdown ms-5">
-                <a class="nav-link dropdown-toggle" href="{{ url('#') }}" id="navbarDropdownMenuLink" role="button"
+                <a class="nav-link dropdown-toggle text-light" href="{{ url('#') }}" id="navbarDropdownMenuLink" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Hola, {{ Auth::user()->name }}
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="{{ route('logout') }}">Cerrar sesión</a></li>
+                    <li><a class="dropdown-item text-center" href="{{ route('logout') }}">Cerrar sesión</a></li>
                 </ul>
             </div>
         </div>

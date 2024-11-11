@@ -1,0 +1,132 @@
+
+
+.about .content h2 {
+    font-weight: 700;
+}
+
+.about .content p:last-child {
+    margin-bottom: 0;
+}
+
+.text-justify-custom{
+    text-align: justify;
+}
+
+.about .content .read-more {
+    background: #e84545;
+    color: #ffffff;
+    font-family: #32353a;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 12px 24px;
+    border-radius: 5px;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about .content .read-more i {
+    font-size: 18px;
+    margin-left: 5px;
+    line-height: 0;
+    transition: 0.3s;
+}
+
+.about .content .read-more:hover {
+    background: color-mix(in srgb, #e84545, transparent 20%);
+    padding-right: 19px;
+}
+
+.about .content .read-more:hover i {
+    margin-left: 10px;
+}
+
+.about .icon-box {
+    background: color-mix(in srgb, #212529, transparent 90%);
+    padding: 50px 40px;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease-out 0s;
+}
+
+.about .icon-box i {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-size: 32px;
+    line-height: 0;
+    transition: all 0.4s ease-out 0s;
+    background-color: color-mix(in srgb, #e84545, transparent 95%);
+    color: #e84545;
+}
+
+.about .icon-box h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.about .icon-box p {
+    margin-bottom: 0;
+}
+
+.about .icon-box:hover i {
+    background-color: #e84545;
+    color: #ffffff;
+}
+
+.about .icon-boxes .col-md-6:nth-child(2) .icon-box,
+.about .icon-boxes .col-md-6:nth-child(4) .icon-box {
+    margin-top: -40px;
+}
+
+.icon-instagram {
+    font-size: 30px;
+    text-decoration: none;
+}
+
+/*logos*/
+
+.collaborators {
+  padding: 20px 0;
+}
+
+.collaborators .collaborators-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.collaborators .collaborators-logo img {
+  padding: 20px 40px;
+  max-width: 100%;
+  transition: 0.3s;
+  opacity: 0.5;
+  filter: grayscale(100);
+}
+
+.collaborators .collaborators-logo img:hover {
+  filter: none;
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .collaborators .collaborators-logo img {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+
+    .about .icon-boxes .col-md-6:nth-child(2) .icon-box,
+    .about .icon-boxes .col-md-6:nth-child(4) .icon-box {
+        margin-top: 0;
+    }
+}
