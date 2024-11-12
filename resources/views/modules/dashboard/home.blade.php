@@ -6,5 +6,9 @@
 @endsection
 
 @section('contenido')
-    <h1>Bienvenido a la página de inicio</h1>
+    <section id="contact" class="contact section pt-5 mt-5" >
+        <div class="container section-title">
+            <h1 class="text-center">CIMORRA EVENTS</h1>
+        </div>
+    </section>
 @endsection
