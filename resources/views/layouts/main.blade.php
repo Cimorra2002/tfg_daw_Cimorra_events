@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="{{ asset('css/contactUs.css') }}" rel="stylesheet">
     <link href="{{ asset('css/aboutUs.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/gallery.css') }}" rel="stylesheet">
     <title>@yield('titulo_pagina')</title>
   </head>
   <body>
