@@ -11,6 +11,7 @@
     <link href="{{ asset('css/contactUs.css') }}" rel="stylesheet">
     <link href="{{ asset('css/aboutUs.css') }}" rel="stylesheet">
     <link href="{{ asset('css/gallery.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/events.css') }}" rel="stylesheet">
     <title>@yield('titulo_pagina')</title>
   </head>
   <body>
