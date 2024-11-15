@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/aboutUs', [AboutUsController::class,'aboutUs'])->name('aboutUs');
     Route::get('/gallery/moogli', [GalleryController::class, 'showMoogli'])->name('gallery.moogli');
     Route::get('/gallery/bloody', [GalleryController::class, 'showBloody'])->name('gallery.bloody');
+    Route::get('/events/{id}', [EventsController::class,'cityEvents'])->name('cityEvents');
+    Route::get('/events/{id}/{event}', [EventsController::class,'showEvent'])->name('showEvent');
 });
 
 // Rutas solo para administradores

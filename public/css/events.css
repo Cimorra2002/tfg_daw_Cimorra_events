@@ -6,3 +6,116 @@
         justify-content: center;
         align-items: center;
 }
+
+.event-card {
+    width: 350px;
+    background: color-mix(in srgb, #212529, transparent 90%);
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding-right: 0;
+    padding-left: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+}
+
+.event-card .event-image {
+    height: 227px;
+    border-radius: 10px 10px 0 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.event-card .event-info {
+    text-align: left !important;
+    color: #000000;
+}
+
+.event-card a {
+    text-decoration: none;
+}
+
+.event-card h4, .event-card span {
+    text-decoration: none;
+}
+
+.search-bar {
+    position: relative;
+}
+
+.search-bar input {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: color-mix(in srgb, #212529, transparent 90%);
+}
+
+.search-bar .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #545657;
+}
+
+.filter-container {
+    border: 1px solid color-mix(in srgb, #212529, transparent 90%);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.filter-container.active {
+    background: color-mix(in srgb, #212529, transparent 90%);
+}
+
+.results {
+    text-align: left !important;
+    color: #757575;
+}
+
+
+
+
+
+
+
+.event-title {
+    height: 50vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.event-title h2 {
+    color: #fff;
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+.event-details span.details-text {
+    font-weight: bold;
+    font-size: .75rem;
+    margin-bottom: -5px;
+}
+
+span.price-text {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.button-purchease {
+    width: fit-content;
+    border-radius: 10px;
+    background: color-mix(in srgb, #212529, transparent 90%);
+    text-decoration: none;
+    color: #000;
+}
+
+.button-purchease span {
+    font-weight: bold;
+    font-size: .9rem;
+}
