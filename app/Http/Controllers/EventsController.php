@@ -11,4 +11,12 @@ class EventsController extends Controller
         return view("modules/events/events");
     }
 
+    public function cityEvents($cityId) {
+        return view("modules/events/cityEvents");
+    }
+
+    public function showEvent($cityId, $eventId) {
+        return view("modules/events/showEvent");
+    }
+
 }
