@@ -25,6 +25,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/aboutUs') }}">Sobre nosotros</a>
                 </li>
+                @if (Auth::user()->role === 'admin')
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/admin') }}">admin</a>
+                    </li>
+                @endif
             </ul>
             <div class="dropdown ms-5">
                 <a class="nav-link dropdown-toggle text-light" href="{{ url('#') }}" id="navbarDropdownMenuLink" role="button"

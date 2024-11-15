@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function () {
@@ -32,7 +33,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Rutas solo para administradores
-Route::middleware(['auth', 'admin'])->group(function () {
-
-
+Route::middleware(['auth', IsAdmin::class])->group(function () {
+    Route::get('/admin', function () {
+        return view("modules/admin/admin");
+    })->name('admin');
 });
