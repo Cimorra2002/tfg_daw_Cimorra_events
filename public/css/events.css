@@ -80,10 +80,6 @@
 
 
 
-
-
-
-
 .event-title {
     height: 50vh;
     width: 100%;
@@ -118,4 +114,41 @@ span.price-text {
 .button-purchease span {
     font-weight: bold;
     font-size: .9rem;
+}
+
+.admin-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    margin-right: 40px;
+    margin-top: 20px;
+}
+
+.custom-gif {
+    max-width: 100%;
+    width: 400px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Para pantallas pequeñas (menos de 576px) */
+@media (max-width: 575.98px) {
+    .custom-gif {
+        width: 300px;
+    }
+}
+
+/* Para pantallas grandes (más de 768px) */
+@media (min-width: 768px) {
+    .custom-gif {
+        width: 600px;
+    }
+}
+
+/* Para pantallas extra grandes (más de 1200px) */
+@media (min-width: 1200px) {
+    .custom-gif {
+        width: 800px;
+    }
 }
