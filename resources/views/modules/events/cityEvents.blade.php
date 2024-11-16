@@ -15,7 +15,7 @@
     @endif
     <section class="d-flex" style="min-height: 80vh;">
         <div class="container text-center">
-            <h2 class="text-center mb-5">Eventos (CIUDAD)</h2>
+            <h2 class="text-center mb-5 mt-5">Eventos (CIUDAD)</h2>
 
             <div class="container mb-5 w-100 gap-3">
                 <div class="d-block d-md-flex flex-row justify-content-between w-100">

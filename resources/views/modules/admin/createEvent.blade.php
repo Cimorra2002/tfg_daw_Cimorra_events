@@ -11,46 +11,49 @@
             <h2 class="mb-5">Crear evento</h2>
             <form class="row g-3">
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4">
+                    <label for="inputNombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="inputNombre">
                 </div>
-                <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4">
-                </div>
-                <div class="col-12">
-                    <label for="inputAddress" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                </div>
-                <div class="col-12">
-                    <label for="inputAddress2" class="form-label">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputCity" class="form-label">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                </div>
-                <div class="col-md-4">
-                    <label for="inputState" class="form-label">State</label>
-                    <select id="inputState" class="form-select">
-                        <option selected>Choose...</option>
+                <div class="col-6">
+                    <label for="inputLocalizacion" class="form-label">Localización</label>
+                    <select id="inputLocalizacion" class="form-select">
+                        <option selected>Elige...</option>
+                        <option>...</option>
+                        <option>...</option>
+                        <option>...</option>
                         <option>...</option>
                     </select>
                 </div>
-                <div class="col-md-2">
-                    <label for="inputZip" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                <div class="col-3">
+                    <label for="inputFecha" class="form-label">Fecha</label>
+                    <input type="text" class="form-control" id="inputFecha">
                 </div>
-                <div class="col-12">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
-                            Check me out
-                        </label>
+                <div class="col-3">
+                    <label for="inputHoraInicio" class="form-label">Hora inicio</label>
+                    <input type="text" class="form-control" id="inputHoraInicio">
+                </div>
+                <div class="col-3">
+                    <label for="inputHoraFin" class="form-label">Hora fin</label>
+                    <input type="text" class="form-control" id="inputHoraFin">
+                </div>
+                <div class="col-3">
+                    <label for="inputPrecio" class="form-label">Precio</label>
+                    <div class="input-group">
+                        <div class="input-group-text">€</div>
+                        <input type="text" class="form-control" id="inputPrecio">
                     </div>
                 </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Selecciona una magen</label>
+                    <input class="form-control" type="file" id="formFile">
+                  </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <label for="floatingDescripcion" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="floatingDescripcion" style="height: 100px"></textarea>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Crear evento</button>
+                    <a class="btn btn-success" onclick="window.history.back();">Volver a los eventos de (CIUDAD)</a>
                 </div>
             </form>
         </div>
