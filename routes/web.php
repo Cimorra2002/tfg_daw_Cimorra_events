@@ -23,18 +23,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [AuthController::class,'home'])->name('home');
     Route::get('/home', [HomeController::class,'home'])->name('home');
     Route::get('/events', [EventsController::class,'events'])->name('events');
+    Route::get('/events/{id}', [EventsController::class,'cityEvents'])->name('cityEvents');
+    Route::get('/events/{id}/{event}', [EventsController::class,'showEvent'])->name('showEvent');
+    Route::get('/maintenance', [EventsController::class,'maintenance'])->name('maintenance');
     Route::get('/gallery', [GalleryController::class,'gallery'])->name('gallery');
     Route::get('/contactUs', [ContactUsController::class,'contactUs'])->name('contactUs');
     Route::get('/aboutUs', [AboutUsController::class,'aboutUs'])->name('aboutUs');
     Route::get('/gallery/moogli', [GalleryController::class, 'showMoogli'])->name('gallery.moogli');
     Route::get('/gallery/bloody', [GalleryController::class, 'showBloody'])->name('gallery.bloody');
-    Route::get('/events/{id}', [EventsController::class,'cityEvents'])->name('cityEvents');
-    Route::get('/events/{id}/{event}', [EventsController::class,'showEvent'])->name('showEvent');
 });
 
 // Rutas solo para administradores
 Route::middleware(['auth', IsAdmin::class])->group(function () {
-    Route::get('/admin', function () {
-        return view("modules/admin/admin");
-    })->name('admin');
+    Route::get('/createEvent', function () {return view("modules/admin/createEvent");})->name('createEvent');
 });
