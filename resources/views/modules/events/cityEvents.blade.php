@@ -6,7 +6,14 @@
 @endsection
 
 @section('contenido')
-    <section id="contact" class="contact section pt-5 mt-5 d-flex" style="min-height: 80vh;">
+    @if (Auth::user()->role === 'admin')
+        <div class="d-flex m-4 gap-4 admin-buttons">
+            <a class="btn btn-success" href="{{ url('/createEvent') }}">Crear</a>
+            <button class="btn btn-warning">Editar</button>
+            <button class="btn btn-danger">Borrar</button>
+        </div>
+    @endif
+    <section class="d-flex" style="min-height: 80vh;">
         <div class="container text-center">
             <h2 class="text-center mb-5">Eventos (CIUDAD)</h2>
 
@@ -18,7 +25,6 @@
                             <a class="search-icon" href=""><i class="bi bi-search"></i></a>
                         </form>
                     </div>
-
 
 
                     <div class="d-flex flex-row justify-content-around w-100">
