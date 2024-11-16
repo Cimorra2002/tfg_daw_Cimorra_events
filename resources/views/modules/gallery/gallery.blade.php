@@ -6,7 +6,7 @@
 @endsection
 
 @section('contenido')
-<section id="about" class="gallery section light-background pt-5 mt-5 pb-5">
+<section class="gallery section light-background pt-5 mt-5 pb-5">
     <div class="container">
         <div class="row align-items-xl-center gy-5 px-5">
             <h2 class="text-center">Galeria</h2>
