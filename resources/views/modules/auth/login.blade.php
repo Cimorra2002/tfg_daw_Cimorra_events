@@ -15,11 +15,11 @@
                             ¿Eres nuevo? <a href="{{ route('registro') }}" class="text-primary fw-bold text-decoration-none">Crea una cuenta</a>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
                             <label for="floatingInput">Correo</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
                             <label for="floatingPassword">Contraseña</label>
                         </div>
                         <div class="d-grid">

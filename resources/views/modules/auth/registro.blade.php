@@ -15,15 +15,15 @@
                             ¿Ya tienes una cuenta? <a href="{{ route('login') }}" class="text-primary fw-bold text-decoration-none">Inicia sesión aquí</a>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Nombre">
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Nombre" required>
                             <label for="name">Nombre</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" name="email" id="email" class="form-control" placeholder="Correo">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Correo" required>
                             <label for="email">Correo</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required>
                             <label for="password">Contraseña</label>
                         </div>
                         <div class="d-grid">
