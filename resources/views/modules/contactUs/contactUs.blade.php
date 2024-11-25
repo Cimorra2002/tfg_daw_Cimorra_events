@@ -6,10 +6,11 @@
 @endsection
 
 @section('contenido')
-    <section id="contact" class="contact section pt-5 mt-5" >
+    <section id="contact" class="contact section pt-5 mt-5">
         <div class="container section-title">
             <h2 class="text-center">Contactanos</h2>
-            <p class="text-center mb-5 mt-3">Si tienes alguna duda sobre la página web o alguna recomendación para mejorar la página contactanos.</p>
+            <p class="text-center mb-5 mt-3">Si tienes alguna duda sobre la página web o alguna recomendación para mejorar la
+                página contactanos.</p>
         </div>
         <div class="container">
             <div class="row gy-4">
@@ -51,23 +52,35 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <form action="#" method="post" class="php-email-form">
+                    <form action="{{ route('contactUs.store') }}" method="POST" class="php-email-form">
+                        @csrf
+                        @method('POST')
                         <div class="row gy-4">
                             <div class="col-md-6">
-                                <input type="text" name="name" class="form-control" placeholder="Tu nombre"
-                                    required="">
+                                <input type="text" name="contact_nombre" class="form-control" placeholder="Tu nombre">
+                                @error('contact_nombre')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-md-6 ">
-                                <input type="email" class="form-control" name="email" placeholder="Tu Email"
-                                    required="">
+                                <input type="text" class="form-control" name="contact_apellido" placeholder="Apellido">
+                                @error('contact_apellido')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-12">
-                                <input type="text" class="form-control" name="subject" placeholder="Apellido"
-                                    required="">
+                                <input type="email" class="form-control" name="contact_correo" placeholder="Tu Email">
+                                @error('contact_correo')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control" name="message" rows="6" placeholder="Mensaje" required=""></textarea>
+                                <textarea class="form-control" name="contact_mensaje" rows="6" placeholder="Mensaje"></textarea>
+                                @error('contact_mensaje')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
+                            <input type="hidden" name="usu_id" value="{{ Auth::id() }}">
                             <div class="col-12 text-center">
                                 <button type="submit">Enviar mensaje</button>
                             </div>
