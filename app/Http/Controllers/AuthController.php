@@ -46,6 +46,22 @@ class AuthController extends Controller
     }
 
     public function logear(Request $request) {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ], [
+            'email.required' => 'El correo es obligatorio.',
+            'email.email' => 'El correo debe ser válido.',
+            'password.required' => 'La contraseña es obligatoria.',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+        if (!$user) {
+        return back()->withErrors([
+            'email' => 'No se encontró una cuenta con este correo.',
+        ])->withInput($request->only('email'));
+        }
+
         $credenciales = [
             'email' => $request->email,
             'password' => $request->password
@@ -54,8 +70,10 @@ class AuthController extends Controller
         if (Auth::attempt($credenciales)){
             return to_route('home');
         } else{
-            return to_route('login');
-        }
+            return back()->withErrors([
+            'password' => 'La contraseña es incorrecta.',
+        ])->withInput($request->only('email'));
+    }
     }
 
     public function logout() {
