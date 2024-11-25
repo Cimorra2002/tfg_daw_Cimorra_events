@@ -19,6 +19,14 @@ class AuthController extends Controller
     }
 
     public function registrar(Request $request) {
+
+        $request->validate([
+            'name' => 'required|string|max:30',
+            'apellido' => 'required|string|max:30',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:2|confirmed',
+        ]);
+
         $item = new User();
         $item->name = $request->name;
         $item->last_name = $request->last_name;
