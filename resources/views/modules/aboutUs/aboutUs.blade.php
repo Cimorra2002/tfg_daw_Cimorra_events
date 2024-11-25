@@ -37,7 +37,6 @@
                     <div>
                         <a class="icon-instagram" href="https://www.instagram.com/queresacon/"><i class="bi bi-instagram icon-instagram text-danger"> @queresacon</i></a>
                     </div>
-                    <br><br><a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
                 <div class="col-xl-7">
                     <div class="row gy-4 icon-boxes">
