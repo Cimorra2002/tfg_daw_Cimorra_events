@@ -19,6 +19,10 @@
                             <label for="name">Nombre</label>
                         </div>
                         <div class="form-floating mb-3">
+                            <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Apellido" required>
+                            <label for="name">Apellido</label>
+                        </div>
+                        <div class="form-floating mb-3">
                             <input type="email" name="email" id="email" class="form-control" placeholder="Correo" required>
                             <label for="email">Correo</label>
                         </div>

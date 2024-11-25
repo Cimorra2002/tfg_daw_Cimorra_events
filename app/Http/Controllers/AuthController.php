@@ -21,6 +21,7 @@ class AuthController extends Controller
     public function registrar(Request $request) {
         $item = new User();
         $item->name = $request->name;
+        $item->last_name = $request->last_name;
         $item->email = $request->email;
         $item->password = Hash::make($request->password);
         $item->save();
