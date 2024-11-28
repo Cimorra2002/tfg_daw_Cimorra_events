@@ -15,4 +15,9 @@ class Localizacion extends Model
     protected $fillable = [
         'localiz_nombre',
     ];
+
+    public function eventos()
+    {
+        return $this->hasMany(Evento::class, 'localiz_id');
+    }
 }
