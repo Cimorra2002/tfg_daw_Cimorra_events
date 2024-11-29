@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('evento_id');
 
             // Definir las claves foráneas correctamente
-            $table->foreign('usu_id')->references('usu_id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreign('evento_id')->references('evento_id')->on('eventos')->onDelete('cascade');
 
             $table->timestamps();

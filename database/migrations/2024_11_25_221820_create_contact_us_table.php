@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('contact_apellido', 50);
             $table->string('contact_correo');
             $table->text('contact_mensaje');
-            $table->foreignId('usu_id')->constrained('users', 'usu_id')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

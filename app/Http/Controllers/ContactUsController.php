@@ -21,7 +21,7 @@ class ContactUsController extends Controller
             'contact_apellido' => 'required|string|max:50',
             'contact_correo' => 'required|email',
             'contact_mensaje' => 'required|string',
-            'usu_id' => 'required|exists:users,id',
+            'user_id' => 'required|exists:users,id',
         ]);
 
         $item = new ContactUs();
@@ -29,7 +29,7 @@ class ContactUsController extends Controller
         $item->contact_apellido = $request->contact_apellido;
         $item->contact_correo = $request->contact_correo;
         $item->contact_mensaje = $request->contact_mensaje;
-        $item->usu_id = $request->usu_id;
+        $item->user_id = $request->user_id;
         $item->save();
         return redirect()->route('contactUs')->with('success', 'Mensaje enviado correctamente.');
     }

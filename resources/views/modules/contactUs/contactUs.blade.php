@@ -80,7 +80,7 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <input type="hidden" name="usu_id" value="{{ Auth::id() }}">
+                            <input type="hidden" name="user_id" value="{{ auth()->id() }}">
                             <div class="col-12 text-center">
                                 <button type="submit">Enviar mensaje</button>
                             </div>
