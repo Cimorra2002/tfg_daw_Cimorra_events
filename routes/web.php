@@ -36,5 +36,6 @@ Route::middleware(['auth'])->group(function () {
 
 // Rutas solo para administradores
 Route::middleware(['auth', IsAdmin::class])->group(function () {
-    Route::get('/createEvent', function () {return view("modules/admin/createEvent");})->name('createEvent');
+    Route::get('/createEvent', [EventsController::class,'addEvent'])->name('createEvent');
+    Route::post('/createEvent', [EventsController::class,'store'])->name('createEvent.store');
 });

@@ -9,47 +9,48 @@
     <section class="pt-5 mt-5">
         <div class="container section-title">
             <h2 class="mb-5">Crear evento</h2>
-            <form class="row g-3">
+            <form class="row g-3" action="{{ route('createEvent.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+
                 <div class="col-md-6">
                     <label for="inputNombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="inputNombre">
+                    <input type="text" class="form-control" id="inputNombre" name="evento_nombre" required>
                 </div>
                 <div class="col-6">
                     <label for="inputLocalizacion" class="form-label">Localización</label>
-                    <select id="inputLocalizacion" class="form-select">
-                        <option selected>Elige...</option>
-                        <option>...</option>
-                        <option>...</option>
-                        <option>...</option>
-                        <option>...</option>
+                    <select id="inputLocalizacion" class="form-select" name="localiz_id" required>
+                        <option selected disabled>Elige...</option>
+                        @foreach($localizaciones as $localizacion)
+                            <option value="{{ $localizacion->localiz_id }}">{{ $localizacion->localiz_nombre }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="col-3">
                     <label for="inputFecha" class="form-label">Fecha</label>
-                    <input type="text" class="form-control" id="inputFecha">
+                    <input type="date" class="form-control" id="inputFecha" name="evento_fecha" required>
                 </div>
                 <div class="col-3">
                     <label for="inputHoraInicio" class="form-label">Hora inicio</label>
-                    <input type="text" class="form-control" id="inputHoraInicio">
+                    <input type="time" class="form-control" id="inputHoraInicio" name="evento_hora_inicio" required>
                 </div>
                 <div class="col-3">
                     <label for="inputHoraFin" class="form-label">Hora fin</label>
-                    <input type="text" class="form-control" id="inputHoraFin">
+                    <input type="time" class="form-control" id="inputHoraFin" name="evento_hora_fin" required>
                 </div>
                 <div class="col-3">
                     <label for="inputPrecio" class="form-label">Precio</label>
                     <div class="input-group">
                         <div class="input-group-text">€</div>
-                        <input type="text" class="form-control" id="inputPrecio">
+                        <input type="number" step="0.01" class="form-control" id="inputPrecio" name="evento_precio">
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="formFile" class="form-label">Selecciona una magen</label>
-                    <input class="form-control" type="file" id="formFile">
-                  </div>
+                    <label for="formFile" class="form-label">Selecciona una imagen</label>
+                    <input class="form-control" type="file" id="formFile" name="evento_imagen">
+                </div>
                 <div class="col-12">
                     <label for="floatingDescripcion" class="form-label">Descripción</label>
-                    <textarea class="form-control" id="floatingDescripcion" style="height: 100px"></textarea>
+                    <textarea class="form-control" id="floatingDescripcion" name="evento_descripcion" style="height: 100px"></textarea>
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary">Crear evento</button>

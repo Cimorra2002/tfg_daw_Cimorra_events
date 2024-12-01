@@ -20,6 +20,7 @@ class Evento extends Model
         'evento_precio',
         'evento_descripcion',
         'localiz_id',
+        'evento_imagen',
     ];
 
     /**

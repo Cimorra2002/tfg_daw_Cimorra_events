@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('evento_descripcion')->nullable();
             $table->unsignedBigInteger('localiz_id');
             $table->foreign('localiz_id')->references('localiz_id')->on('localizaciones')->onDelete('cascade');
+            $table->string('evento_imagen')->nullable();
             $table->timestamps();
         });
     }
