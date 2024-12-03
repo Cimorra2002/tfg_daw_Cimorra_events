@@ -73,7 +73,7 @@
             </div>
             <div>
                 <a class="d-flex justify-content-between align-items-center gap-3 px-4 py-2 button-purchease"
-                    href="">
+                    href="https://open.nyxell.com/city/fiestas-en-tarazona/site/que-resacon-polideportivo-municipal-tarazona/event/18900-queresacon--recinto-ferial-tarazona--sabado-14--diciembre">
                     <i class="bi bi-bag"></i>
                     <span>Comprar entrada</span>
                 </a>
