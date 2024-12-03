@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary">Crear evento</button>
-                    <a class="btn btn-success" onclick="window.history.back();">Volver a los eventos de (CIUDAD)</a>
+                    <a class="btn btn-success" href="/events">Volver a los eventos</a>
                 </div>
             </form>
         </div>
