@@ -16,22 +16,12 @@
             </form>
         </div>
 
-        <!-- Mostrar el último evento -->
-        @if($ultimoEvento) <!-- Asegúrate de que hay un evento -->
-            <div class="event-card" style="margin-top: 15%">
-                <h4 class="text-center mb-2 mt-2">Nuestro próximo evento</h4>
-                <a href="{{ url('/events/' . $ultimoEvento->localiz_id . '/' . $ultimoEvento->evento_id) }}">
-                    <div class="w-100 event-image"
-                        style="background-image: url({{ url('storage/' . $ultimoEvento->evento_imagen) }});"></div>
-                    <div class="event-info p-3">
-                        <h4 class="mb-1">{{ $ultimoEvento->evento_nombre }}</h4>
-                        <span class="text-decoration-none">{{ $ultimoEvento->evento_descripcion }}</span>
-                    </div>
-                </a>
+        <!-- Nuevo div centrado con imagen -->
+        <div class="d-flex justify-content-center align-items-center py-5">
+            <div class="text-center">
+                <img src="{{ asset('images/fiesta2/IMG_22.jpg') }}" alt="Descripción de la imagen" class="img-fluid">
             </div>
-        @else
-            <p>No hay eventos disponibles.</p>
-        @endif
+        </div>
     </div>
 </section>
 @endsection

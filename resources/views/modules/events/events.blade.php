@@ -18,7 +18,6 @@
             <h2 class="text-center mb-5">Eventos</h2>
 
             <!-- Contenedor de botones centrados -->
-             <!-- Contenedor de botones centrados -->
              <div class="d-flex flex-column justify-content-center align-items-center">
                 <div class="row justify-content-center mb-4">
                     @foreach($localizacionesConEventos as $localizacion)
