@@ -19,6 +19,7 @@ class LocalizacionesSeeder extends Seeder
             ['localiz_nombre' => 'HUESCA', 'created_at' => now(), 'updated_at' => now()],
             ['localiz_nombre' => 'TERUEL', 'created_at' => now(), 'updated_at' => now()],
             ['localiz_nombre' => 'GRAÑEN', 'created_at' => now(), 'updated_at' => now()],
+            ['localiz_nombre' => 'LLEIDA', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }
