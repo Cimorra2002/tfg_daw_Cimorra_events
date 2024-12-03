@@ -6,16 +6,9 @@
 @endsection
 
 @section('contenido')
-    @if (Auth::user()->role === 'admin')
-        <div class="d-flex m-4 gap-4 admin-buttons">
-            <a class="btn btn-success" href="{{ url('/createEvent') }}">Crear</a>
-            <button class="btn btn-warning">Editar</button>
-            <button class="btn btn-danger">Borrar</button>
-        </div>
-    @endif
     <section class="d-flex" style="min-height: 80vh;">
         <div class="container text-center">
-            <h2 class="text-center mb-5 mt-5">Eventos (CIUDAD)</h2>
+            <h2 class="text-center mb-5 mt-5">Eventos en {{ $localizacion->localiz_nombre }}</h2>
 
             <div class="container mb-5 w-100 gap-3">
                 <div class="d-block d-md-flex flex-row justify-content-between w-100">
@@ -37,75 +30,22 @@
 
             <!-- Event List -->
             <div class="container-fluid text-center">
-                <div class="results w-100 mb-3"><span>33 Resultados</span></div>
+                <div class="results w-100 mb-3"><span>{{ $eventos->count() }} Resultados</span></div>
                 <div class="row display-flex justify-content-around">
 
-                    <!-- Cards -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-5 event-card">
-                        <a href="{{ url('/events/2/1') }}">
-                            <div class="w-100 event-image"
-                                style="background-image: url({{ url('images/fiesta2/IMG_13.jpg') }});"></div>
-                            <div class="event-info p-3">
-                                <h4 class="mb-1">evento_nombre</h4>
-                                <span class="text-decoration-none"> Hola</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-5 event-card">
-                        <a href="{{ url('/events/2/1') }}">
-                            <div class="w-100 event-image"
-                                style="background-image: url({{ url('images/fiesta2/IMG_13.jpg') }});"></div>
-                            <div class="event-info p-3">
-                                <h4 class="mb-1">evento_nombre</h4>
-                                <span class="text-decoration-none"> Hola</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-5 event-card">
-                        <a href="{{ url('/events/2/1') }}">
-                            <div class="w-100 event-image"
-                                style="background-image: url({{ url('images/fiesta2/IMG_13.jpg') }});"></div>
-                            <div class="event-info p-3">
-                                <h4 class="mb-1">evento_nombre</h4>
-                                <span class="text-decoration-none"> Hola</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-5 event-card">
-                        <a href="{{ url('/events/2/1') }}">
-                            <div class="w-100 event-image"
-                                style="background-image: url({{ url('images/fiesta2/IMG_13.jpg') }});"></div>
-                            <div class="event-info p-3">
-                                <h4 class="mb-1">evento_nombre</h4>
-                                <span class="text-decoration-none"> Hola</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-5 event-card">
-                        <a href="{{ url('/events/2/1') }}">
-                            <div class="w-100 event-image"
-                                style="background-image: url({{ url('images/fiesta2/IMG_13.jpg') }});"></div>
-                            <div class="event-info p-3">
-                                <h4 class="mb-1">evento_nombre</h4>
-                                <span class="text-decoration-none"> Hola</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-5 event-card">
-                        <a href="{{ url('/events/2/1') }}">
-                            <div class="w-100 event-image"
-                                style="background-image: url({{ url('images/fiesta2/IMG_13.jpg') }});"></div>
-                            <div class="event-info p-3">
-                                <h4 class="mb-1">evento_nombre</h4>
-                                <span class="text-decoration-none"> Hola</span>
-                            </div>
-                        </a>
-                    </div>
+                    <!-- Card -->
+                    @foreach($eventos as $evento)
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-5 event-card">
+                            <a href="{{ url('/events/' . $localizacion->localiz_id . '/' . $evento->evento_id) }}">
+                                <div class="w-100 event-image"
+                                    style="background-image: url({{ url('storage/' . $evento->evento_imagen) }});"></div>
+                                <div class="event-info p-3">
+                                    <h4 class="mb-1">{{ $evento->evento_nombre }}</h4>
+                                    <span class="text-decoration-none">{{ $evento->descripcion }}</span>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
 
 
                 </div>
