@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [AuthController::class,'logout'])->name('logout');
     Route::get('/home', [AuthController::class,'home'])->name('home');
     Route::get('/home', [HomeController::class,'home'])->name('home');
+    Route::get('/home', [EventsController::class, 'latestEvent']);
 
     Route::get('/events', [EventsController::class,'events'])->name('events');
     Route::get('/events/{localiz_id}', [EventsController::class, 'showCityEvents']);

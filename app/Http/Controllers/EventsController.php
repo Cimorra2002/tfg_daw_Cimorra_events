@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Validator;
 class EventsController extends Controller
 {
 
+    public function latestEvent() {
+        // Obtener el último evento
+        $ultimoEvento = Evento::latest()->first(); // Obtiene el último evento registrado
+
+        return view('modules/dashboard/home', compact('ultimoEvento')); // Pasar el último evento a la vista
+    }
+
     public function events() {
         // Obtener todas las localizaciones desde la base de datos
         $localizaciones = Localizacion::all();
