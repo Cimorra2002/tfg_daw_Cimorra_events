@@ -83,6 +83,12 @@ class EventsController extends Controller
         return view("modules.admin.menuEvent");
     }
 
+    public function shareParty($localiz_id, $evento_id) {
+        $evento = Evento::findOrFail($evento_id);
+        $localizacion = Localizacion::findOrFail($localiz_id);
+        return view('modules/events/showEvent', compact('evento', 'localizacion'));
+    }
+
     public function store(Request $request) {
 
         //dd($request->all());
@@ -150,7 +156,7 @@ class EventsController extends Controller
             'evento_precio' => 'nullable|numeric|min:0',
             'evento_descripcion' => 'nullable|string',
             'localiz_id' => 'required|exists:localizaciones,localiz_id',
-            'evento_imagen' => 'nullable|image|max:2048',
+            'evento_imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         // Buscar el evento por evento_id

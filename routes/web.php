@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/events/{localiz_id}', [EventsController::class, 'showCityEvents']);
     Route::get('/events/{localiz_id}', [EventsController::class, 'filtros'])->name('events.filtros');
     Route::get('/events/{localiz_id}/{evento_id}', [EventsController::class, 'showEventDetails']);
+    Route::get('/events/{localiz_id}/{evento_id}', [EventsController::class, 'shareParty'])->name('events.shareParty');
     Route::get('/maintenance', [EventsController::class,'maintenance'])->name('maintenance');
 
     Route::get('/gallery', [GalleryController::class,'gallery'])->name('gallery');

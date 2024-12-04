@@ -57,27 +57,19 @@
                     <span class="details-text">LOCALIDAD</span>
                     <span>{{ $localizacion->localiz_nombre }}</span>
                 </div>
-            </div>
-        </section>
 
-        <section class="py-4">
-            <h4 class="mb-3">Compra tu entrada</h4>
-            <div class="mb-4">
                 <div class="d-flex flex-column">
                     <span class="details-text">Precio</span>
                     <div class="d-flex gap-5 align-items-center">
                         <span class="price-text">{{ number_format($evento->evento_precio, 2) }}€</span>
-                        <span>hay existencias</span>
                     </div>
                 </div>
             </div>
-            <div>
-                <a class="d-flex justify-content-between align-items-center gap-3 px-4 py-2 button-purchease"
-                    href="https://open.nyxell.com/city/fiestas-en-tarazona/site/que-resacon-polideportivo-municipal-tarazona/event/18900-queresacon--recinto-ferial-tarazona--sabado-14--diciembre">
-                    <i class="bi bi-bag"></i>
-                    <span>Comprar entrada</span>
-                </a>
-            </div>
+        </section>
+
+        <section class="py-4">
+            <h4 class="mb-3">Compartir</h4>
+            <a href="https://wa.me/?text={{ urlencode($evento->evento_nombre . ' - ' . $evento->evento_fecha . ' a las ' . $evento->evento_hora_inicio . '. Más detalles: ' . route('events.shareParty', ['localiz_id' => $localizacion->localiz_id, 'evento_id' => $evento->evento_id]) . ' Localización: ' . $localizacion->localiz_nombre) }}" target="_blank" class="btn btn-success"> Compartir por WhatsApp </a>
         </section>
     </div>
 
