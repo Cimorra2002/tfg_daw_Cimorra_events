@@ -23,7 +23,7 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string|max:30',
             'last_name' => 'required|string|max:30',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email|unique:users,email|regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
             'password' => 'required|string|min:2',
         ],
         [
@@ -32,6 +32,7 @@ class AuthController extends Controller
             'email.required' => 'El correo es obligatorio.',
             'email.email' => 'El correo debe ser una dirección válida.',
             'email.unique' => 'El correo ya está registrado.',
+            'email.regex' => 'El correo debe tener un dominio válido (por ejemplo: .com, .org, .net).',
             'password.required' => 'La contraseña es obligatoria.',
             'password.min' => 'La contraseña debe tener al menos 2 caracteres.',
         ]);
