@@ -21,7 +21,10 @@ Route::middleware(['auth'])->group(function () {
     // Rutas para usuarios autenticados
     Route::get('/logout', [AuthController::class,'logout'])->name('logout');
     Route::get('/home', [AuthController::class,'home'])->name('home');
-    Route::get('/home', [HomeController::class,'home'])->name('home');
+    Route::prefix('home')->group(function () {
+        Route::get('/', [HomeController::class, 'home'])->name('home');
+        Route::get('/', [EventsController::class, 'searchEvents'])->name('home');
+    });
 
     Route::get('/events', [EventsController::class,'events'])->name('events');
     Route::get('/events/{localiz_id}', [EventsController::class, 'showCityEvents']);

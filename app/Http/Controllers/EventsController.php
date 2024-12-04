@@ -11,16 +11,28 @@ use Illuminate\Support\Facades\Validator;
 class EventsController extends Controller
 {
 
+    public function searchEvents(Request $request) {
+        $query = $request->input('query'); // Obtener el término de búsqueda desde el request
+        // Si hay un término de búsqueda, devolver los resultados en formato JSON
+        if ($query) {
+            // Realizamos la consulta buscando los eventos por nombre
+            $events = Evento::where('evento_nombre', 'like', '%' . $query . '%')
+                            //->limit(5) // Limitar la cantidad de resultados
+                            ->get(['evento_id', 'evento_nombre', 'localiz_id']);
+            return response()->json($events); // Devolver los eventos como JSON
+        }
+        // Si no hay término de búsqueda, simplemente devolver la vista principal
+        return view('modules.dashboard.home');
+    }
+
     public function events() {
         // Obtener todas las localizaciones desde la base de datos
         $localizaciones = Localizacion::all();
-
         // Para cada localización, verificar si tiene eventos asociados
         $localizacionesConEventos = $localizaciones->map(function ($localizacion) {
         $localizacion->has_events = Evento::where('localiz_id', $localizacion->localiz_id)->exists();
         return $localizacion;
         });
-
         return view('modules/events/events', compact('localizacionesConEventos'));
     }
 

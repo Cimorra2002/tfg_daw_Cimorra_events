@@ -67,6 +67,15 @@
     border: 1px solid color-mix(in srgb, #212529, transparent 90%);
     border-radius: 10px;
     cursor: pointer;
+    color: #545657;
+}
+
+.list-group{
+    display:none;
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+    width: 100%;
 }
 
 .filter-container.active {
