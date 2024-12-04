@@ -19,9 +19,17 @@ class ContactUsController extends Controller
         $request->validate([
             'contact_nombre' => 'required|string|max:50',
             'contact_apellido' => 'required|string|max:50',
-            'contact_correo' => 'required|email',
+            'contact_correo' => 'required|email|regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
             'contact_mensaje' => 'required|string',
             'user_id' => 'required|exists:users,id',
+        ],
+        [
+            'contact_nombre.required' => 'El nombre es obligatorio.',
+            'contact_apellido.required' => 'El apellido es obligatorio.',
+            'contact_correo.email' => 'El correo debe ser una dirección válida.',
+            'contact_correo.regex' => 'El correo debe tener un dominio válido (por ejemplo: .com, .org, .net).',
+            'contact_correo.required' => 'El correo es obligatorio.',
+            'contact_mensaje.required' => 'El mensaje es obligatorio.',
         ]);
 
         $item = new ContactUs();

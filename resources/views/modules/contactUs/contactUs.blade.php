@@ -56,6 +56,12 @@
                         @csrf
                         @method('POST')
                         <div class="row gy-4">
+                            @if (session('success'))
+                                <div class="alert alert-success alert-dismissible fade show">
+                                    {{ session('success') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
                             <div class="col-md-6">
                                 <input type="text" name="contact_nombre" class="form-control" placeholder="Tu nombre">
                                 @error('contact_nombre')
