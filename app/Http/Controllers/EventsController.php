@@ -24,17 +24,30 @@ class EventsController extends Controller
         return view('modules/events/events', compact('localizacionesConEventos'));
     }
 
+    public function filtros(Request $request, $localiz_id) {
+        $localizacion = Localizacion::findOrFail($localiz_id);
+        // Obtener el valor de 'order' y asegurarse de que es válido
+        $order = $request->input('order', 'asc');
+        // Validar que 'order' sea 'asc' o 'desc'
+        if (!in_array($order, ['asc', 'desc'])) {
+            $order = 'asc'; // valor por defecto si es inválido
+        }
+        // Obtener los eventos de la localización ordenados alfabéticamente
+        $eventos = Evento::where('localiz_id', $localiz_id)
+                 ->orderByRaw('LOWER(evento_nombre) ' . $order)
+                 ->get();
+        return view('modules/events/cityEvents', compact('localizacion', 'eventos'));
+    }
+
     public function showCityEvents($localiz_id) {
         $localizacion = Localizacion::findOrFail($localiz_id);
         $eventos = Evento::where('localiz_id', $localiz_id)->get();
-
         return view('modules/events/cityEvents', compact('localizacion', 'eventos'));
     }
 
     public function showEventDetails($localiz_id, $evento_id) {
         $evento = Evento::findOrFail($evento_id);
         $localizacion = Localizacion::findOrFail($localiz_id);
-
         return view('modules/events/showEvent', compact('evento', 'localizacion'));
     }
 
@@ -45,14 +58,12 @@ class EventsController extends Controller
     public function addEvent() {
         // Obtener todas las localizaciones
         $localizaciones = Localizacion::all();
-        // Pasar las localizaciones a la vista
         return view('modules.admin.createEvent', compact('localizaciones'));
     }
 
     public function showEventsLocalization() {
         // Obtener todos los eventos junto con su localización
         $eventos = Evento::with('localizacion')->get();
-        // Asegúrate de pasar los datos correctamente a la vista
         return view('modules.admin.menuEvent', compact('eventos'));
     }
 
@@ -113,8 +124,6 @@ class EventsController extends Controller
     // Obtener el evento por su evento_id
     $evento = Evento::where('evento_id', $id)->firstOrFail();
     $localizaciones = Localizacion::all();
-
-    // Pasar el evento y las localizaciones a la vista
     return view('modules.admin.editEvent', compact('evento', 'localizaciones'));
     }
 
@@ -152,7 +161,6 @@ class EventsController extends Controller
             if ($evento->evento_imagen && file_exists(storage_path('app/public/' . $evento->evento_imagen))) {
                 unlink(storage_path('app/public/' . $evento->evento_imagen));
             }
-
             // Guardar la nueva imagen
             $imagenPath = $request->file('evento_imagen')->store('images', 'public');
         }
@@ -182,13 +190,9 @@ class EventsController extends Controller
         if ($evento->evento_imagen && file_exists(storage_path('app/public/' . $evento->evento_imagen))) {
             unlink(storage_path('app/public/' . $evento->evento_imagen)); // Eliminar la imagen
         }
-
         // Eliminar el evento de la base de datos
         $evento->delete();
-
-        // Redirigir al usuario con un mensaje de éxito
         return redirect()->route('menuEvent')->with('success', 'Evento eliminado exitosamente.');
     }
-
 
 }

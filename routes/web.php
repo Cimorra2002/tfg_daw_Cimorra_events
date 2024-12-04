@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/events', [EventsController::class,'events'])->name('events');
     Route::get('/events/{localiz_id}', [EventsController::class, 'showCityEvents']);
+    Route::get('/events/{localiz_id}', [EventsController::class, 'filtros'])->name('events.filtros');
     Route::get('/events/{localiz_id}/{evento_id}', [EventsController::class, 'showEventDetails']);
     Route::get('/maintenance', [EventsController::class,'maintenance'])->name('maintenance');
 
