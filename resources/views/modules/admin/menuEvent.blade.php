@@ -9,6 +9,12 @@
     <section class="pt-5 mt-5">
         <div class="container section-title">
             <h2 class="mb-5">Opciones de eventos de admin</h2>
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <table class="table table-bordered table-striped table-hover table-rounded">
                 <thead>
                     <tr>

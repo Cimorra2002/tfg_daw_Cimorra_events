@@ -21,7 +21,12 @@
             <form class="row g-3" action="{{ route('updateEvent', $evento->evento_id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 <div class="col-md-6">
                     <label for="inputNombre" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="inputNombre" name="evento_nombre" value="{{ $evento->evento_nombre }}" required>
