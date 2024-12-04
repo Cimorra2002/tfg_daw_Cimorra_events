@@ -1,0 +1,21 @@
+/* Aseguramos que el body ocupe al menos toda la altura de la ventana */
+html, body {
+    height: 100%; /* Asegura que el body ocupe toda la altura de la ventana */
+    margin: 0; /* Elimina el margen predeterminado */
+}
+
+/* Establecemos el body como un contenedor flexible */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* El contenedor principal crece para ocupar el espacio disponible */
+.container {
+    flex-grow: 1;
+}
+
+/* El footer se empuja siempre hacia el final de la página */
+footer {
+    margin-top: auto;
+}

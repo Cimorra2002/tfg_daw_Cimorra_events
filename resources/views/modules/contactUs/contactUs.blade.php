@@ -91,3 +91,7 @@
         </div>
     </section>
 @endsection
+
+@section('footer')
+    @include('layouts.footer.footer')
+@endsection
