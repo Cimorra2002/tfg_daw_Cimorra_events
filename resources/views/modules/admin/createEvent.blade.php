@@ -46,16 +46,16 @@
                     <label for="inputPrecio" class="form-label">Precio</label>
                     <div class="input-group">
                         <div class="input-group-text">€</div>
-                        <input type="number" step="0.01" class="form-control" id="inputPrecio" name="evento_precio">
+                        <input type="number" step="0.01" class="form-control" id="inputPrecio" name="evento_precio" required>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Selecciona una imagen</label>
-                    <input class="form-control" type="file" id="formFile" name="evento_imagen">
+                    <input class="form-control" type="file" id="formFile" name="evento_imagen" required>
                 </div>
                 <div class="col-12">
                     <label for="floatingDescripcion" class="form-label">Descripción</label>
-                    <textarea class="form-control" id="floatingDescripcion" name="evento_descripcion" style="height: 100px"></textarea>
+                    <textarea class="form-control" id="floatingDescripcion" name="evento_descripcion" style="height: 100px" required></textarea>
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary">Crear evento</button>

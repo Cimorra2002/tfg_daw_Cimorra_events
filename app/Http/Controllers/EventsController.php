@@ -96,22 +96,14 @@ class EventsController extends Controller
         $request->validate([
             'evento_nombre' => 'required|string|max:100',
             'evento_fecha' => 'required|date',
-            'evento_hora_inicio' => 'required|date_format:H:i',
-            'evento_hora_fin' => 'required|date_format:H:i',
-            'evento_precio' => 'nullable|numeric|min:0',
-            'evento_descripcion' => 'nullable|string',
+            'evento_hora_inicio' => 'required',
+            'evento_hora_fin' => 'required',
+            'evento_precio' => 'required|numeric|min:0',
+            'evento_descripcion' => 'required|string',
             'localiz_id' => 'required|exists:localizaciones,localiz_id',
-            'evento_imagen' => 'nullable|image|max:2048',
+            'evento_imagen' => 'required|image|max:2048',
         ]);
 
-        // Combina fecha y hora para comparar completamente
-        $horaInicio = Carbon::createFromFormat('Y-m-d H:i', $request->evento_fecha . ' ' . $request->evento_hora_inicio);
-        $horaFin = Carbon::createFromFormat('Y-m-d H:i', $request->evento_fecha . ' ' . $request->evento_hora_fin);
-
-        // Si la hora de fin es menor o igual que la hora de inicio, ajustamos la hora de fin para el día siguiente
-        if ($horaFin <= $horaInicio) {
-            $horaFin->addDay(); // Añadimos un día a la hora de fin
-        }
 
         //dd('Los datos han pasado la validación.');
 
@@ -127,8 +119,8 @@ class EventsController extends Controller
         $item = new Evento();
         $item->evento_nombre = $request->evento_nombre;
         $item->evento_fecha = $request->evento_fecha;
-        $item->evento_hora_inicio = $horaInicio->format('H:i'); // Hora de inicio formateada
-        $item->evento_hora_fin = $horaFin->format('H:i'); // Hora de fin formateada
+        $item->evento_hora_inicio = $request->evento_hora_inicio;
+        $item->evento_hora_fin = $request->evento_hora_fin;
         $item->evento_precio = $request->evento_precio;
         $item->evento_descripcion = $request->evento_descripcion;
         $item->localiz_id = $request->localiz_id;
@@ -151,8 +143,8 @@ class EventsController extends Controller
         $request->validate([
             'evento_nombre' => 'required|string|max:100',
             'evento_fecha' => 'required|date',
-            'evento_hora_inicio' => 'required|date_format:H:i',
-            'evento_hora_fin' => 'required|date_format:H:i',
+            'evento_hora_inicio' => 'required',
+            'evento_hora_fin' => 'required',
             'evento_precio' => 'nullable|numeric|min:0',
             'evento_descripcion' => 'nullable|string',
             'localiz_id' => 'required|exists:localizaciones,localiz_id',
@@ -162,15 +154,6 @@ class EventsController extends Controller
         // Buscar el evento por evento_id
         $evento = Evento::where('evento_id', $id)->firstOrFail();
         //dd($evento);
-
-        // Combina fecha y hora para comparar completamente
-        $horaInicio = Carbon::createFromFormat('Y-m-d H:i', $request->evento_fecha . ' ' . $request->evento_hora_inicio);
-        $horaFin = Carbon::createFromFormat('Y-m-d H:i', $request->evento_fecha . ' ' . $request->evento_hora_fin);
-
-        // Si la hora de fin es menor o igual que la de inicio, sumamos un día a la hora de fin
-        if ($horaFin <= $horaInicio) {
-            $horaFin->addDay();
-        }
 
         // Guardar la imagen si se sube una nueva
         $imagenPath = $evento->evento_imagen; // Mantener la imagen actual si no se sube una nueva
@@ -186,8 +169,8 @@ class EventsController extends Controller
         // Actualizar el evento con los nuevos datos
         $evento->evento_nombre = $request->evento_nombre;
         $evento->evento_fecha = $request->evento_fecha;
-        $evento->evento_hora_inicio = $horaInicio->format('H:i');
-        $evento->evento_hora_fin = $horaFin->format('H:i');
+        $evento->evento_hora_inicio = $request->evento_hora_inicio;
+        $evento->evento_hora_fin = $request->evento_hora_fin;
         $evento->evento_precio = $request->evento_precio;
         $evento->evento_descripcion = $request->evento_descripcion;
         $evento->localiz_id = $request->localiz_id;

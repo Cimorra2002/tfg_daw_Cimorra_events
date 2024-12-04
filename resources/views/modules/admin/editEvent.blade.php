@@ -29,11 +29,11 @@
                 @endif
                 <div class="col-md-6">
                     <label for="inputNombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="inputNombre" name="evento_nombre" value="{{ $evento->evento_nombre }}" required>
+                    <input type="text" class="form-control" id="inputNombre" name="evento_nombre" value="{{ $evento->evento_nombre }}">
                 </div>
                 <div class="col-6">
                     <label for="inputLocalizacion" class="form-label">Localización</label>
-                    <select id="inputLocalizacion" class="form-select" name="localiz_id" required>
+                    <select id="inputLocalizacion" class="form-select" name="localiz_id">
                         <option selected disabled>Elige...</option>
                         @foreach($localizaciones as $localizacion)
                             <option value="{{ $localizacion->localiz_id }}"
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-3">
                     <label for="inputFecha" class="form-label">Fecha</label>
-                    <input type="date" class="form-control" id="inputFecha" name="evento_fecha" value="{{ $evento->evento_fecha }}" required>
+                    <input type="date" class="form-control" id="inputFecha" name="evento_fecha" value="{{ $evento->evento_fecha }}">
                 </div>
                 <div class="col-3">
                     <label for="inputHoraInicio" class="form-label">Hora inicio</label>
