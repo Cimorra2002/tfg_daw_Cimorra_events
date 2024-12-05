@@ -102,6 +102,8 @@ class EventsController extends Controller
             'evento_descripcion' => 'required|string',
             'localiz_id' => 'required|exists:localizaciones,localiz_id',
             'evento_imagen' => 'required|image|max:2048',
+        ],[
+            'localiz_id.required'=> 'la localización es obligatoria.',
         ]);
 
 

@@ -6,6 +6,7 @@
 @endsection
 
 @section('contenido')
+
     <section class="pt-5 mt-5">
         <div class="container section-title">
             <h2 class="mb-5">Crear evento</h2>
@@ -25,10 +26,13 @@
                     <label for="inputLocalizacion" class="form-label">Localización</label>
                     <select id="inputLocalizacion" class="form-select" name="localiz_id" required>
                         <option selected disabled>Elige...</option>
-                        @foreach($localizaciones as $localizacion)
+                        @foreach ($localizaciones as $localizacion)
                             <option value="{{ $localizacion->localiz_id }}">{{ $localizacion->localiz_nombre }}</option>
                         @endforeach
                     </select>
+                    @error('localiz_id')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="col-3">
                     <label for="inputFecha" class="form-label">Fecha</label>
@@ -46,7 +50,8 @@
                     <label for="inputPrecio" class="form-label">Precio</label>
                     <div class="input-group">
                         <div class="input-group-text">€</div>
-                        <input type="number" step="0.01" class="form-control" id="inputPrecio" name="evento_precio" required>
+                        <input type="number" step="0.01" class="form-control" id="inputPrecio" name="evento_precio"
+                            required>
                     </div>
                 </div>
                 <div class="mb-3">
