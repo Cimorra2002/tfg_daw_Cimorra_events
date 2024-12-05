@@ -69,7 +69,12 @@
 
         <section class="py-4">
             <h4 class="mb-3">Compartir</h4>
-            <a href="https://wa.me/?text={{ urlencode($evento->evento_nombre . ' - ' . $evento->evento_fecha . ' a las ' . $evento->evento_hora_inicio . '. Más detalles: ' . route('events.shareParty', ['localiz_id' => $localizacion->localiz_id, 'evento_id' => $evento->evento_id]) . ' Localización: ' . $localizacion->localiz_nombre) }}" target="_blank" class="btn btn-success"> Compartir por WhatsApp </a>
+            <a href="https://wa.me/?text={{ urlencode($evento->evento_nombre . ' - ' . $evento->evento_fecha . ' a las ' . $evento->evento_hora_inicio . '. Más detalles: ' . route('events.shareParty', ['localiz_id' => $localizacion->localiz_id, 'evento_id' => $evento->evento_id]) . ' Localización: ' . $localizacion->localiz_nombre) }}" target="_blank" class="btn btn-success"><i class="bi bi-whatsapp"></i></a>
+
+            <a href="https://twitter.com/intent/tweet?text={{ urlencode($evento->evento_nombre . ' - ' . $evento->evento_fecha . ' a las ' . $evento->evento_hora_inicio . '. Más detalles: ' . route('events.shareParty', ['localiz_id' => $localizacion->localiz_id, 'evento_id' => $evento->evento_id]) . ' Localización: ' . $localizacion->localiz_nombre) }}" target="_blank" class="btn btn-dark"><i class="bi bi-twitter-x"></i></a>
+
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(route('events.shareParty', ['localiz_id' => $localizacion->localiz_id, 'evento_id' => $evento->evento_id])) }}&quote={{ urlencode($evento->evento_nombre . ' - ' . $evento->evento_fecha . ' a las ' . $evento->evento_hora_inicio . '. Localización: ' . $localizacion->localiz_nombre) }}" target="_blank" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
+
         </section>
     </div>
 
