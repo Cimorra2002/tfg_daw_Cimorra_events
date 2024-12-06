@@ -17,11 +17,11 @@ return new class extends Migration
             $table->date('evento_fecha');
             $table->time('evento_hora_inicio');
             $table->time('evento_hora_fin');
-            $table->decimal('evento_precio', 8, 2)->nullable();
-            $table->text('evento_descripcion')->nullable();
+            $table->decimal('evento_precio', 8, 2);
+            $table->string('evento_descripcion', 400);
             $table->unsignedBigInteger('localiz_id');
             $table->foreign('localiz_id')->references('localiz_id')->on('localizaciones')->onDelete('cascade');
-            $table->string('evento_imagen')->nullable();
+            $table->string('evento_imagen');
             $table->timestamps();
         });
     }

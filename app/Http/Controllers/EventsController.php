@@ -99,11 +99,12 @@ class EventsController extends Controller
             'evento_hora_inicio' => 'required',
             'evento_hora_fin' => 'required',
             'evento_precio' => 'required|numeric|min:0',
-            'evento_descripcion' => 'required|string',
+            'evento_descripcion' => 'required|string|max:400',
             'localiz_id' => 'required|exists:localizaciones,localiz_id',
-            'evento_imagen' => 'required|image|max:2048',
+            'evento_imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ],[
             'localiz_id.required'=> 'la localización es obligatoria.',
+            'evento_precio.min' => 'El precio tiene que ser mayor que 0.',
         ]);
 
 
@@ -114,8 +115,6 @@ class EventsController extends Controller
             // Almacenar el archivo en el directorio 'public/images' dentro de 'storage/app'
             $imagenPath = $request->file('evento_imagen')->store('images', 'public');
             //dd($imagenPath); // Ver la ruta completa donde se ha guardado el archivo
-        } else {
-            dd('No se ha enviado ningún archivo.');
         }
 
         $item = new Evento();
@@ -143,12 +142,12 @@ class EventsController extends Controller
 
         // Validación de los datos
         $request->validate([
-            'evento_nombre' => 'required|string|max:100',
+            'evento_nombre' => 'nullable|string|max:100',
             'evento_fecha' => 'required|date',
             'evento_hora_inicio' => 'required',
             'evento_hora_fin' => 'required',
             'evento_precio' => 'nullable|numeric|min:0',
-            'evento_descripcion' => 'nullable|string',
+            'evento_descripcion' => 'nullable|string|max:400',
             'localiz_id' => 'required|exists:localizaciones,localiz_id',
             'evento_imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);

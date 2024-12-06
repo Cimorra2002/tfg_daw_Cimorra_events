@@ -53,6 +53,9 @@
                         <input type="number" step="0.01" class="form-control" id="inputPrecio" name="evento_precio"
                             required>
                     </div>
+                    @error('evento_precio')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Selecciona una imagen</label>
