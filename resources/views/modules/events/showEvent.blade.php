@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="d-flex flex-column">
-                    <span class="details-text">LOCALIDAD</span>
+                    <span class="details-text">LOCALIZACIÓN</span>
                     <span>{{ $localizacion->localiz_nombre }}</span>
                 </div>
 
