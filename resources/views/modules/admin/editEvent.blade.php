@@ -6,15 +6,7 @@
 @endsection
 
 @section('contenido')
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
     <section class="pt-5 mt-5">
         <div class="container section-title">
             <h2 class="mb-5">Editar evento</h2>
@@ -61,6 +53,9 @@
                         <div class="input-group-text">€</div>
                         <input type="number" step="0.01" class="form-control" id="inputPrecio" name="evento_precio" value="{{ $evento->evento_precio }}">
                     </div>
+                    @error('evento_precio')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Selecciona una imagen</label>

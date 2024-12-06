@@ -150,6 +150,8 @@ class EventsController extends Controller
             'evento_descripcion' => 'nullable|string|max:400',
             'localiz_id' => 'required|exists:localizaciones,localiz_id',
             'evento_imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ],[
+            'evento_precio.min' => 'El precio tiene que ser mayor que 0.',
         ]);
 
         // Buscar el evento por evento_id
