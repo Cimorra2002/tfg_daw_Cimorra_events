@@ -11,7 +11,7 @@ class IsAdmin
 {
     public function handle(Request $request, Closure $next) {
 
-        // El modelo de Usuario tiene un atributo `role` o un método `isAdmin()`
+        // El modelo de Usuario tiene un atributo 'role'
         if (Auth::check() && Auth::user()->role === 'admin') {
             return $next($request);
         }
